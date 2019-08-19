@@ -32,4 +32,9 @@ describe("<Display />", () => {
         expect(getByText('Unlocked'));
     })
 
+    it('shows red-led class when closed', () => {
+        const {closedClass} = render(<Display locked={true}/>);
+        expect(closedClass.toHaveClass('red-led'));
+    })
+
   });
