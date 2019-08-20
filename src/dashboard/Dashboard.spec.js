@@ -13,8 +13,21 @@ describe("<Dashboard />", () => {
       expect(tree.toJSON()).toMatchSnapshot();
     });
 
-    // it("renders Display correctly"), () => {
-        
-    // }
+    it("renders Display correctly", () => {
+        const {getByTestId} = render(<Dashboard />);
+        const displayDisplay = getByTestId('display');
+    });
+
+    it("renders Controls correctly", () => {
+        const {getByTestId} = render(<Dashboard />);
+        const displayControls = getByTestId('controls');
+    });
+
+    it("displays open/closed", () => {
+        const {getByTestId, queryByText} = render(<Dashboard />);
+        expect(queryByText(/Open/i)).toBeTruthy();
+        fireEvent.click(getByTestId(/controlsButton2/i));
+        expect(queryByText(/Closed/i).toBeTruthy());
+    });
 
   });

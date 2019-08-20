@@ -4,6 +4,7 @@ exports[`<Dashboard /> matches snapshot 1`] = `
 Array [
   <div
     className="display panel"
+    data-testid="display"
   >
     <div
       className="led green-led"
@@ -18,6 +19,7 @@ Array [
   </div>,
   <div
     className="controls panel"
+    data-testid="controls"
   >
     <button
       className="toggle-btn"
@@ -28,6 +30,7 @@ Array [
     </button>
     <button
       className="toggle-btn"
+      data-testid="controlsButton2"
       disabled={false}
       onClick={[Function]}
     >
