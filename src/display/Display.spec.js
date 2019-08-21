@@ -1,4 +1,8 @@
 // Test away!
+//yarn
+//yarn add -D @testing-library/jest-dom
+//yarn add -D @testing-library/react
+
 import React from 'react';
 import {render, fireEvent} from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
