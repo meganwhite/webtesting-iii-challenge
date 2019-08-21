@@ -2,11 +2,36 @@
 import React from 'react';
 import {render, fireEvent} from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
+import renderer from "react-test-renderer";
 
 
 import Controls from "./Controls"
 
 describe("<Controls />", () => {
+
+    it("matches snapshot", () => {
+        const tree = renderer.create(<Controls />); // generates a DOM tree
+        expect(tree.toJSON()).toMatchSnapshot();
+      });
+
+      it("provides button to toggle closed state", () => {
+        const {getByTestId} = render(<Controls />);
+        const displayClosedButton = getByTestId('controlsButton1');
+        expect(displayClosedButton);
+    });
+
+    it("provides button to toggle locked state", () => {
+        const {getByTestId} = render(<Controls />);
+        const displayLockButton = getByTestId('controlsButton2');
+        expect(displayLockButton);
+    });
+
+    it('displays "open" if door is open', () => {
+
+    })
+    
+    //buttons' text changes to reflect the state the door will be in if clicked
+
     it('should disable lock button if gate is open', () => {
         //render copy of control component
         const wrapper = render(<Controls />);
